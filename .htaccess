@@ -1,0 +1,3 @@
+# If document root is project root (not /public), forward to public
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]

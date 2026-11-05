@@ -1,0 +1,16 @@
+.env
+storage/installed.lock
+storage/logs/*.log
+public/uploads/products/*
+!public/uploads/products/.gitkeep
+sql/menu_data.local.php
+sql/menu_data.coffeearc.php
+sql/_menu_local_bak.php
+.DS_Store
+Thumbs.db
+*.zip
+CoffeeArc-deploy.zip
+.idea/
+.vscode/
+*.log
+ChatGPT Image*.png
