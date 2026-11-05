@@ -84,8 +84,8 @@ final class CheckoutController
         }
 
         $needPhone = Setting::enabled('customer_phone');
-        $phone = trim((string) input('customer_phone', ''));
-        if ($needPhone && $phone === '') {
+        $phone = normalize_phone((string) input('customer_phone', ''));
+        if ($needPhone && !$phone) {
             json_response(['ok' => false, 'error' => 'شماره تماس الزامی است.', 'need_checkout' => true]);
         }
 

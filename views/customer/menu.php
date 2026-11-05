@@ -1,5 +1,8 @@
 <?php
 use App\Models\Setting;
+$cafePhone = trim((string) Setting::get('cafe_phone', ''));
+$cafeAddress = trim((string) Setting::get('cafe_address', ''));
+$phoneDigits = normalize_phone($cafePhone);
 ?>
 <header class="cust-header">
   <div class="container cust-header-inner">
@@ -17,6 +20,22 @@ use App\Models\Setting;
       </div>
     </div>
   </div>
+  <?php if ($cafePhone !== '' || $cafeAddress !== ''): ?>
+  <div class="container menu-contact">
+    <?php if ($cafePhone !== ''): ?>
+      <a class="menu-contact-phone" href="tel:<?= e($phoneDigits ?: preg_replace('/\s+/', '', $cafePhone)) ?>" dir="ltr">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="currentColor"/></svg>
+        <span><?= e($cafePhone) ?></span>
+      </a>
+    <?php endif; ?>
+    <?php if ($cafeAddress !== ''): ?>
+      <div class="menu-contact-address">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" fill="currentColor"/></svg>
+        <span><?= e($cafeAddress) ?></span>
+      </div>
+    <?php endif; ?>
+  </div>
+  <?php endif; ?>
 </header>
 
 <main class="container" style="padding-top:.5rem">

@@ -104,6 +104,27 @@ function has_price(mixed $price): bool
     return $price !== null && $price !== '' && (int) $price > 0;
 }
 
+/** Normalize Iranian phone numbers for storage / unique listing. */
+function normalize_phone(?string $phone): ?string
+{
+    if ($phone === null) {
+        return null;
+    }
+    $digits = preg_replace('/\D+/', '', $phone) ?? '';
+    if ($digits === '') {
+        return null;
+    }
+    if (str_starts_with($digits, '0098')) {
+        $digits = substr($digits, 4);
+    } elseif (str_starts_with($digits, '98') && strlen($digits) >= 12) {
+        $digits = substr($digits, 2);
+    }
+    if (strlen($digits) === 10 && str_starts_with($digits, '9')) {
+        $digits = '0' . $digits;
+    }
+    return $digits !== '' ? $digits : null;
+}
+
 function __(string $key, ?string $default = null): string
 {
     return \App\Helpers\Lang::get($key, $default);

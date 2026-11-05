@@ -19,6 +19,8 @@ return [
     'select_table' => 'Select table',
     'name_optional' => 'Name (optional)',
     'phone' => 'Phone',
+    'address' => 'Address',
+    'call_us' => 'Call',
     'optional' => 'optional',
     'notes' => 'Notes',
     'discount_code' => 'Discount code',

@@ -8,15 +8,22 @@
 >
 <div class="pos-layout">
   <div>
-    <div class="product-grid">
+    <div class="cats pos-cats" id="posCats">
+      <button type="button" class="cat-chip active" data-cat="">همه</button>
+      <?php foreach ($categories as $cat): ?>
+        <?php if (empty($grouped[(int)$cat['id']])) continue; ?>
+        <button type="button" class="cat-chip" data-cat="<?= (int)$cat['id'] ?>"><?= e($cat['name']) ?></button>
+      <?php endforeach; ?>
+    </div>
+    <div class="product-grid" id="posGrid">
       <?php foreach ($categories as $cat): foreach ($grouped[(int)$cat['id']] ?? [] as $p): ?>
-        <article class="product-card" data-product="<?= (int)$p['id'] ?>">
+        <article class="product-card" data-product="<?= (int)$p['id'] ?>" data-cat="<?= (int)$cat['id'] ?>">
           <img class="thumb" src="<?= e(upload_url($p['image_path'])) ?>" alt="">
           <div class="body">
             <h3><?= e($p['name']) ?></h3>
             <div class="en"><?= e($cat['name']) ?></div>
             <div class="price-row">
-              <span class="price"><?= e(money((int)$p['base_price'])) ?></span>
+              <span class="price"><?= has_price($p['base_price'] ?? null) ? e(money((int)$p['base_price'])) : '—' ?></span>
               <button type="button" class="add-btn">+</button>
             </div>
           </div>
@@ -36,8 +43,8 @@
       </select>
     </div>
     <div class="form-group">
-      <label>نام مشتری</label>
-      <input class="input" id="posName">
+      <label>شماره موبایل مشتری</label>
+      <input class="input" id="posPhone" type="tel" inputmode="tel" placeholder="09xxxxxxxxx" dir="ltr" style="text-align:left">
     </div>
     <?php if ($discounts): ?>
       <div class="form-group">

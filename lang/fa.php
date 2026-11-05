@@ -19,6 +19,8 @@ return [
     'select_table' => 'انتخاب میز',
     'name_optional' => 'نام (اختیاری)',
     'phone' => 'شماره تماس',
+    'address' => 'آدرس',
+    'call_us' => 'تماس',
     'optional' => 'اختیاری',
     'notes' => 'توضیحات',
     'discount_code' => 'کد تخفیف',

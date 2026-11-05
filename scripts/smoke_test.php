@@ -206,7 +206,7 @@ $r = req('POST', $base . '/admin/pos', [
         'table_id' => $tableId,
         'pay_method' => 'cafe',
         'mark_paid' => '1',
-        'customer_name' => 'POS',
+        'customer_phone' => '09123334444',
     ],
 ]);
 $pos = json_decode($r['body'], true);

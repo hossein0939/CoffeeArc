@@ -8,7 +8,6 @@
     <thead>
       <tr>
         <th>موبایل</th>
-        <th>نام</th>
         <th>تعداد سفارش</th>
         <th>آخرین سفارش</th>
         <th>جمع خرید</th>
@@ -16,12 +15,11 @@
     </thead>
     <tbody>
     <?php if (!$rows): ?>
-      <tr><td colspan="5" class="muted">هنوز شماره‌ای ثبت نشده.</td></tr>
+      <tr><td colspan="4" class="muted">هنوز شماره‌ای ثبت نشده.</td></tr>
     <?php endif; ?>
     <?php foreach ($rows as $row): ?>
       <tr>
         <td dir="ltr" style="text-align:left"><?= e($row['phone']) ?></td>
-        <td><?= e($row['name'] ?: '—') ?></td>
         <td><?= (int)$row['orders_count'] ?></td>
         <td><?= e($row['last_order_at']) ?></td>
         <td><?= e(money((int)$row['total_spent'])) ?></td>

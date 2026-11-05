@@ -6,11 +6,11 @@ Digital QR menu + ordering for cafés and small restaurants.
 Built for shared hosting (cPanel): plain **PHP 8 + MySQL**, no Composer required at runtime.
 
 <p align="center">
-  <img src="docs/screenshots/01-menu.png" width="280" alt="Customer menu">
+  <img src="docs/screenshots/01-menu.png" width="260" alt="Customer menu">
   &nbsp;
-  <img src="docs/screenshots/03-orders.png" width="280" alt="Live orders">
+  <img src="docs/screenshots/02-orders.png" width="260" alt="Live orders">
   &nbsp;
-  <img src="docs/screenshots/04-pos.png" width="280" alt="POS">
+  <img src="docs/screenshots/04-tables.png" width="260" alt="Tables">
 </p>
 
 ---
@@ -19,11 +19,12 @@ Built for shared hosting (cPanel): plain **PHP 8 + MySQL**, no Composer required
 
 ### What you get
 - QR menu for each table (or one shared link)
+- Cafe phone & address on the menu header (tap-to-call)
 - One-tap ordering for guests when phone/payment extras are off
 - Staff POS, live orders, tables board
 - Optional online payment via Zarinpal (`TEST` merchant = built-in mock gateway)
 - Feature switches in Settings (ordering, phone capture, discounts, …)
-- Customer phone list + CSV export
+- Unique customer phone list + CSV export
 - System language: Persian or English (admin chooses; no guest language switch)
 - Fully self-contained assets (local fonts, QR, no CDN)
 
@@ -53,14 +54,11 @@ sql/menu_data.local.php
 (same PHP array format). The seeder prefers this file when present.
 
 ### Screenshots
-| Customer | Admin |
+| | |
 |---|---|
-| ![menu](docs/screenshots/01-menu.png) | ![orders](docs/screenshots/03-orders.png) |
-| ![login](docs/screenshots/02-login.png) | ![pos](docs/screenshots/04-pos.png) |
-|  | ![menu admin](docs/screenshots/05-menu-admin.png) |
-|  | ![tables](docs/screenshots/06-tables.png) |
-|  | ![phones](docs/screenshots/07-customers.png) |
-|  | ![settings](docs/screenshots/08-settings.png) |
+| ![menu](docs/screenshots/01-menu.png) | ![orders](docs/screenshots/02-orders.png) |
+| ![menu admin](docs/screenshots/03-menu-admin.png) | ![tables](docs/screenshots/04-tables.png) |
+| ![settings](docs/screenshots/05-settings.png) |  |
 
 ### Stack
 PHP 8 · MySQL/MariaDB · vanilla JS · RTL-friendly CSS
@@ -79,11 +77,12 @@ MIT — free for personal and commercial use. See [LICENSE](LICENSE).
 
 ### امکانات اصلی
 - منوی QR برای هر میز
+- نمایش تلفن و آدرس کافه روی منو (تماس با یک لمس)
 - مسیر ثبت سفارش کوتاه (بسته به تنظیمات تلفن/پرداخت)
 - POS مسئول، سفارش‌های زنده، وضعیت میز
 - پرداخت آنلاین زرین‌پال یا پرداخت در کافه
 - سوئیچ روشن/خاموش برای هر قابلیت
-- لیست موبایل مشتریان + خروجی CSV
+- لیست یکتای موبایل مشتریان + خروجی CSV
 - زبان سیستم فارسی/انگلیسی از تنظیمات مدیر
 - فونت و QR و اسکریپت‌ها همگی محلی
 

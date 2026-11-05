@@ -3,7 +3,7 @@
   <p><strong>میز:</strong> <?= e($order['table_number'] ?? '—') ?></p>
   <p><strong>وضعیت:</strong> <span class="badge <?= e(status_class($order['status'])) ?>"><?= e(status_label($order['status'])) ?></span></p>
   <p><strong>پرداخت:</strong> <?= e(status_label($order['pay_status'])) ?> / <?= e(status_label($order['pay_method'])) ?></p>
-  <p><strong>مشتری:</strong> <?= e($order['customer_name'] ?: '—') ?> · <?= e($order['customer_phone'] ?: '—') ?></p>
+  <p><strong>موبایل:</strong> <span dir="ltr"><?= e($order['customer_phone'] ?: '—') ?></span><?php if (!empty($order['customer_name'])): ?> · <?= e($order['customer_name']) ?><?php endif; ?></p>
   <?php if ($order['notes']): ?><p><strong>توضیحات:</strong> <?= e($order['notes']) ?></p><?php endif; ?>
   <?php if ($order['zarinpal_ref']): ?><p><strong>کد پیگیری:</strong> <?= e($order['zarinpal_ref']) ?></p><?php endif; ?>
 

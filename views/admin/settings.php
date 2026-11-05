@@ -16,8 +16,8 @@
         </select>
         <p class="muted" style="font-size:.8rem;margin:.35rem 0 0">با تغییر زبان، کل رابط کاربری سیستم عوض می‌شود. سوییچ برای مشتری وجود ندارد.</p>
       </div>
-      <div class="form-group"><label>تلفن</label><input class="input" name="cafe_phone" value="<?= e($settings['cafe_phone'] ?? '') ?>"></div>
-      <div class="form-group"><label>آدرس</label><input class="input" name="cafe_address" value="<?= e($settings['cafe_address'] ?? '') ?>"></div>
+      <div class="form-group"><label>تلفن</label><input class="input" name="cafe_phone" value="<?= e($settings['cafe_phone'] ?? '') ?>" placeholder="۰۹۱۲… — روی منو نمایش و قابل تماس می‌شود" dir="ltr" style="text-align:left"></div>
+      <div class="form-group"><label>آدرس</label><input class="input" name="cafe_address" value="<?= e($settings['cafe_address'] ?? '') ?>" placeholder="روی هدر منوی مشتری نمایش داده می‌شود"></div>
       <h3>زرین‌پال</h3>
       <div class="form-group">
         <label>Merchant ID</label>

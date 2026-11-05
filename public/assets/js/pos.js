@@ -58,7 +58,18 @@
     render();
   }
 
-  $$('[data-product]').forEach(el => el.addEventListener('click', () => addProduct(+el.dataset.product)));
+  $$('#posGrid [data-product]').forEach(el => el.addEventListener('click', () => addProduct(+el.dataset.product)));
+
+  $$('#posCats .cat-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      $$('#posCats .cat-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const cat = chip.dataset.cat || '';
+      $$('#posGrid [data-product]').forEach(card => {
+        card.hidden = cat !== '' && card.dataset.cat !== cat;
+      });
+    });
+  });
 
   $('#posSubmit')?.addEventListener('click', async () => {
     if (!state.cart.length) return alert('سبد خالی است');
@@ -70,7 +81,7 @@
     fd.set('table_id', $('#posTable')?.value || '');
     fd.set('pay_method', 'cafe');
     fd.set('mark_paid', $('#markPaid')?.checked ? '1' : '0');
-    fd.set('customer_name', $('#posName')?.value || '');
+    fd.set('customer_phone', $('#posPhone')?.value || '');
     fd.set('discount_code', $('#posDiscount')?.value || '');
     const res = await fetch(document.body.dataset.posUrl, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
     const data = await res.json();
